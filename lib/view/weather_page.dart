@@ -26,4 +26,49 @@ class _WeatherPageState extends State<WeatherPage> {
     });
     super.initState();
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      body: FutureBuilder(
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error.toString()} occured',
+                  style: const TextStyle(fontSize: 18),
+                ),
+              );
+            } else if (snapshot.hasData) {
+              final data = snapshot.data as WeatherModel;
+              return Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment(0.8, 1),
+                    colors: <Color>[
+                      Color.fromARGB(255, 58, 24, 78),
+                      Color.fromARGB(255, 23, 29, 78),
+                      Color.fromARGB(255, 43, 102, 141),
+                      Color.fromARGB(255, 70, 132, 184),
+                      Color.fromARGB(255, 77, 194, 149),
+                    ],
+                    tileMode: TileMode.mirror,
+                  ),
+                ),
+                width: double.infinity,
+                height: double.infinity,
+                child: SafeArea(child: child),
+              );
+            }
+          }
+        },
+      ),
+    );
+  }
 }
