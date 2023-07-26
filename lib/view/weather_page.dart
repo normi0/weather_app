@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:developer';
-import 'package:anim_search_bar/anim_search_bar.dart';
-import 'package:weather_app/constants/constants.dart';
 import 'package:weather_app/logic/models/weather_model.dart';
 import 'package:weather_app/logic/services/call_to_api.dart';
 

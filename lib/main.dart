@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:weather_app/view/weather_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: WeatherPage(),
+      home: const WeatherPage(),
     );
   }
 }
